@@ -11,7 +11,6 @@ function handleRoot(req, res) {
   res.sendFile(path.join(__dirname, '/index.html'));
 }
 
-
 async function getProduct(req, res, next) {
   const { id } = req.params
   const product = await Products.get(id)
@@ -43,11 +42,15 @@ async function listProducts(req, res) {
 
 async function createProduct(req, res) {
   console.log('request body:', req.body)
-  res.status(200).send();
+  res.json(req.body)
 }
 async function deleteProduct(req, res) {
   console.log('request body:', req.body)
-  res.status(202).send();
+  res.status(203).send();
+}
+async function updateProduct(req, res) {
+  console.log('request body:', req.body)
+  res.status(200).send();
 }
 
 
@@ -57,4 +60,5 @@ module.exports = autoCatch({
   getProduct,
   createProduct,
   deleteProduct,
+  updateProduct
 });
