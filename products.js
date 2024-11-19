@@ -19,6 +19,7 @@ async function list(options = {}) {
 }
 
 async function get(id) {
+  
   const products = JSON.parse(await fs.readFile(productsFile))
 
   for (let i = 0; i < products.length; i++) {
